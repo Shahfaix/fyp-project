@@ -1,90 +1,94 @@
 'use client'
 // pages/login.tsx
+// pages/signin.tsx
 import { useState, FormEvent } from 'react';
-import { AiFillGoogleCircle, AiFillApple } from 'react-icons/ai'; // or any other icon library
+import { AiOutlineMail, AiOutlineLock } from 'react-icons/ai'; // For mail and lock icons
+import { AiFillGoogleCircle, AiFillApple } from 'react-icons/ai'; // Assuming you're using react-icons
 import { FaFacebookF } from 'react-icons/fa';
-import { FcGoogle } from "react-icons/fc";
-import { IoLogoGithub } from "react-icons/io5";
-import { FaPhone } from "react-icons/fa6";
+import { useRouter } from 'next/navigation';
 
-const LoginPage = () => {
+
+const SignInPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
 
+  const router = useRouter();
+
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
-    // Handle your login logic here
+    // Implement your sign-in logic here
   };
-
-  // Styles can be externalized to a CSS/SCSS file or a JS object for CSS-in-JS solutions
-  const pageStyles = {
-    container: {
-      maxWidth: '400px',
-      margin: '0 auto',
-      padding: '20px',
-      textAlign: 'center' as const,
-    },
-    input: {
-      margin: '10px 0',
-      width: '100%',
-      padding: '10px',
-    },
-    button: {
-      width: '100%',
-      padding: '10px',
-      backgroundColor: 'purple',
-      color: 'white',
-      border: 'none',
-    },
-    socialIcon: {
-      margin: '0 10px',
-    },
-  };
+  const handleCheckSignIn=()=>{
+    if(email=='shafaiz@gmail.com'&& password=="pass"){
+  router.push('/home')
+    }
+  }
 
   return (
-    <div style={pageStyles.container}>
-      <h1>Hello User,</h1>
-      <p>Welcome Back, You Have Been Missed For Long Time</p>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email Address"
-          style={pageStyles.input}
-        />
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
-          style={pageStyles.input}
-        />
-        <div>
-          <label>
-            <input
-              type="checkbox"
-              checked={rememberMe}
-              onChange={(e) => setRememberMe(e.target.checked)}
-            /> Remember Me
-          </label>
-          <a href="/forgot-password" style={{ marginLeft: '10px' }}>
-            Forgot Password?
-          </a>
-        </div>
-        <button type="submit" style={pageStyles.button}>LOGIN</button>
-        <p>Don't have an account? <a href="/signup">Sign Up</a></p>
-      </form>
-      <p>Or Continue With</p>
-      <div className="flex flex-row  pt-3 gap-7">
-        <FcGoogle />
-        <IoLogoGithub />
-        <FaPhone />
-        
-        </div>
+    <div className="flex flex-col items-center justify-center min-h-screen py-2 px-6 bg-gray-100">
+      <div className="w-full max-w-md">
+        <h1 className="text-xl font-semibold text-center text-gray-700 mb-6">Welcome Back, You Have Been Missed</h1>
+        <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+          <div className="mb-4">
+            <div className="flex items-center bg-gray-200 rounded px-3 py-2">
+              <AiOutlineMail className="text-gray-500 mr-2" />
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Email Address"
+                className="bg-gray-200 outline-none w-full text-gray-700"
+              />
+            </div>
+          </div>
+          <div className="mb-4">
+            <div className="flex items-center bg-gray-200 rounded px-3 py-2">
+              <AiOutlineLock className="text-gray-500 mr-2" />
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Password"
+                className="bg-gray-200 outline-none w-full text-gray-700"
+              />
+            </div>
+          </div>
+          <div className="flex items-center justify-between mb-6">
+            <label className="flex items-center">
+              <input
+                type="checkbox"
+                checked={rememberMe}
+                onChange={(e) => setRememberMe(e.target.checked)}
+                className="mr-2"
+              />
+              Remember me
+            </label>
+            <a href="/forgot-password" className="text-sm text-purple-600 hover:text-purple-800">
+              Forgot Password?
+            </a>
+          </div>
+          <div className="mb-6">
+            <button
+            onClick={handleCheckSignIn}
+              type="submit"
+              className="w-full bg-purple-600 hover:bg-purple-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            >
+              Sign In
+            </button>
+          </div>
+          <div className="text-center mb-6">
+            <p className="text-gray-600">Don't have an account? <a href="/register" className="text-purple-600 hover:text-purple-800">Sign Up</a></p>
+          </div>
+          <div className="flex items-center justify-center">
+            <AiFillGoogleCircle className="text-2xl text-gray-500 hover:text-gray-700 cursor-pointer mx-2" />
+            <FaFacebookF className="text-2xl text-gray-500 hover:text-gray-700 cursor-pointer mx-2" />
+            <AiFillApple className="text-2xl text-gray-500 hover:text-gray-700 cursor-pointer mx-2" />
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
 
-export default LoginPage;
+export default SignInPage;
