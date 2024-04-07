@@ -16,7 +16,7 @@ const Navbar = () => {
           </div>
         
         {/* Search Bar */}
-        <div className="flex-grow mx-4">
+        <div className="flex-grow mx-4 bg-pink-100">
           <input
             type="text"
             placeholder="Search.."
