@@ -66,7 +66,7 @@ const Navbar = () => {
         
         {/* User Profile Section */}
         <div className="flex items-center">
-          <span className="text-white mr-4">User</span>
+         
           <div className="w-10 h-10 rounded-full bg-white flex justify-center items-center">
             <Image src="/path-to-your-profile-icon.svg" alt="User Profile" width={32} height={32} />
           </div>

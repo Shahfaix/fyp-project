@@ -1,33 +1,40 @@
+'use client'
 import { useState, FormEvent } from 'react';
-import { AiOutlineMail, AiOutlineLock } from 'react-icons/ai';
-import { useRouter } from 'next/navigation';
+ // Corrected from 'next/navigation'
+import { AiOutlineUser, AiOutlineMail, AiOutlineLock } from 'react-icons/ai';
 import { FcGoogle } from "react-icons/fc";
 import { IoLogoGithub } from "react-icons/io5";
-import { FaPhone } from "react-icons/fa6";
 
-const SignInPage = () => {
+const SignUpPage = () => {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [rememberMe, setRememberMe] = useState(false);
+  const [confirmPassword, setConfirmPassword] = useState('');
 
-  const router = useRouter();
+ 
 
-  const handleSubmit = (event: FormEvent) => {
-    event.preventDefault();
-    // Implement your sign-in logic here
-  };
 
-  const handleCheckSignIn = () => {
-    if (email === 'shafaiz@gmail.com' && password === "pass") {
-      router.push('/home');
-    }
-  };
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="w-full max-w-md px-4">
-        <h1 className="text-3xl font-semibold text-center text-gray-700 mb-6">Welcome Back, You Have Been Missed</h1>
-        <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <div className="w-full max-w-lg px-4">
+        <h1 className="text-3xl font-semibold text-center text-gray-700 mb-6">Join Us Today!</h1>
+        <form  className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+          {/* Name Field */}
+          <div className="mb-4">
+            <div className="flex items-center bg-gray-200 rounded px-3 py-2">
+              <AiOutlineUser className="text-gray-500 mr-2" />
+              <input
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Full Name"
+                required
+                className="bg-gray-200 outline-none w-full text-gray-700"
+              />
+            </div>
+          </div>
+          {/* Email Field */}
           <div className="mb-4">
             <div className="flex items-center bg-gray-200 rounded px-3 py-2">
               <AiOutlineMail className="text-gray-500 mr-2" />
@@ -36,10 +43,12 @@ const SignInPage = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Email Address"
+                required
                 className="bg-gray-200 outline-none w-full text-gray-700"
               />
             </div>
           </div>
+          {/* Password Field */}
           <div className="mb-4">
             <div className="flex items-center bg-gray-200 rounded px-3 py-2">
               <AiOutlineLock className="text-gray-500 mr-2" />
@@ -48,40 +57,39 @@ const SignInPage = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Password"
+                required
                 className="bg-gray-200 outline-none w-full text-gray-700"
               />
             </div>
           </div>
-          <div className="mb-4 flex items-center justify-between">
-            <label className="flex items-center">
+          {/* Confirm Password Field */}
+          <div className="mb-6">
+            <div className="flex items-center bg-gray-200 rounded px-3 py-2">
+              <AiOutlineLock className="text-gray-500 mr-2" />
               <input
-                type="checkbox"
-                checked={rememberMe}
-                onChange={(e) => setRememberMe(e.target.checked)}
-                className="mr-2"
+                type="password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                placeholder="Confirm Password"
+                required
+                className="bg-gray-200 outline-none w-full text-gray-700"
               />
-              <span>Remember me</span>
-            </label>
-            <a href="/forgot-password" className="text-sm text-purple-950 hover:text-purple-950">
-              Forgot Password?
-            </a>
+            </div>
           </div>
           <div className="mb-6">
             <button
-              onClick={handleCheckSignIn}
               type="submit"
-              className="w-full bg-purple-950 hover:bg-purple-950 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             >
-              Sign In
+              Sign Up
             </button>
           </div>
           <div className="text-center mb-6">
-            <p className="text-gray-600">Don't have an account? <a href="/register" className="text-purple-950 hover:text-purple-950">Sign Up</a></p>
+            <p className="text-gray-600">Already have an account? <a href="/signin" className="text-purple-600 hover:text-purple-700">Sign In</a></p>
           </div>
           <div className="flex justify-center">
-            <FcGoogle className="text-3xl mr-2" />
-            <IoLogoGithub className="text-3xl mr-2" />
-            <FaPhone className="text-3xl" />
+            <FcGoogle className="text-3xl mr-2 cursor-pointer" />
+            <IoLogoGithub className="text-3xl mr-2 cursor-pointer" />
           </div>
         </form>
       </div>
@@ -89,4 +97,4 @@ const SignInPage = () => {
   );
 };
 
-export default SignInPage;
+export default SignUpPage;
