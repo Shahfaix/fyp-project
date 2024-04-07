@@ -1,7 +1,7 @@
-import type { Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
 
-const config = {
-  darkMode: ["class"],
+const config: Config = {
+  darkMode: "class", // Adjusted to be a string as per Tailwind CSS configuration options
   content: [
     './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
@@ -18,6 +18,9 @@ const config = {
       },
     },
     extend: {
+      colors: {
+        customGray: '#34025C', // Added custom color
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
@@ -34,7 +37,7 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
-} satisfies Config
+  plugins: [require("tailwindcss-animate")], // Ensure you have this plugin installed for it to work
+};
 
-export default config
+export default config;
