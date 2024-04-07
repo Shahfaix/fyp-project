@@ -19,8 +19,11 @@ export default function Home() {
   const router = useRouter();
 
 
-  const goToHome = () => {
+  const goToSignIn = () => {
     router.push('/auth');
+  };
+  const goToSignUp = () => {
+    router.push('/signup');
   };
   return (
     <div className="Logo">
@@ -33,10 +36,10 @@ export default function Home() {
 
         </div >
         <div className="flex flex-row  pt-5 gap-6">
-          <Button  onClick={goToHome} >
+          <Button  onClick={goToSignIn} >
             Login
           </Button>
-          <Button onClick={goToHome} variant="secondary" >
+          <Button onClick={goToSignUp} variant="secondary" >
             Sign up
           </Button>
 
