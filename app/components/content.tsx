@@ -4,7 +4,7 @@ const Content = () => {
   return (
     <div className="flex flex-wrap gap-4 p-4 bg-pink-100">
       {/* Section of Law Card */}
-      <div className="bg-lavender-600 rounded-lg p-4 flex-1">
+      <div className=" bg-purple-600 rounded-lg p-4 flex-1">
         <img
           className="h-14 w-14 mb-2"
           alt="Sections of Law"
@@ -37,7 +37,7 @@ const Content = () => {
       </div>
 
       {/* Summarize Card */}
-      <div className="bg-lavender-400 rounded-lg p-4 flex-1">
+      <div className="bg-purple-400 rounded-lg p-4 flex-1">
         <img
           className="h-14 w-14 mb-2"
           alt="Summarize"
