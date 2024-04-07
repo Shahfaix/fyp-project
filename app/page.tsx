@@ -24,11 +24,11 @@ export default function Home() {
   };
   return (
     <div className="Logo">
-      <div className="flex flex-col Logo pt-[160px] items-center">
+      <div className="flex flex-col Logo lg:pt-[160px] sm: pt-[280px] items-center sm:" >
         <Image src={Logo} alt="Logo" height={170} width={170} />
-        <div className="pt-[20px] text-2xl text-[42px]">
+        <div className="flex flex-row gap-1 pt-[20px] text-2xl text-[42px] text-xl sm:text-3xl lg:text-5xl ">
           <span>{`Welcome to `}</span>
-          <span className="text-purple-950">LawBot</span>
+          <span className="text-purple-950  ">LawBot</span>
           <span>.AI</span>
 
         </div >

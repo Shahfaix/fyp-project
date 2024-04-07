@@ -43,9 +43,9 @@ const LoginPage = () => {
   };
 
   return (
-    <div style={pageStyles.container}>
-      <h1>Hello User,</h1>
-      <p>Welcome Back, You Have Been Missed For Long Time</p>
+    <div className='flex flex-col items-center pt-[160px]'>
+      <h1 >Hello User,</h1>
+      <p className='pt-6'>Welcome Back, You Have Been Missed For Long Time</p>
       <form onSubmit={handleSubmit}>
         <input
           type="email"
