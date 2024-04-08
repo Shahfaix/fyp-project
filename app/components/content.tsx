@@ -1,6 +1,13 @@
-import React from 'react';
 
+'use client'
+import React from 'react';
+import { useRouter } from 'next/navigation';
 const Content = () => {
+  const router = useRouter();
+  
+  const goToSignIn = () => {
+    router.push('/promptscreen');
+  };
   return (
     <div className="flex justify-center p-6 bg-pink-100">
       <div className="max-w-6xl w-full space-y-6">
@@ -17,7 +24,7 @@ const Content = () => {
               Need Help in Judiciary Sections of Law?
             </p>
             <div className="mt-auto">
-              <button className="bg-white text-purple-600 hover:bg-purple-200 rounded-full py-3 px-8 font-semibold">
+              <button onClick={goToSignIn} className="bg-white text-purple-600 hover:bg-purple-200 rounded-full py-3 px-8 font-semibold">
                 Sections
               </button>
             </div>
@@ -35,7 +42,7 @@ const Content = () => {
               Analyse Real Case Records with AI.
             </p>
             <div className="mt-auto">
-              <button className="bg-white text-blue-500 hover:bg-blue-200 rounded-full py-3 px-8 font-semibold">
+              <button onClick={goToSignIn} className="bg-white text-blue-500 hover:bg-blue-200 rounded-full py-3 px-8 font-semibold">
                 Analyse
               </button>
             </div>
@@ -53,7 +60,7 @@ const Content = () => {
               Summarize long Law Terms
             </p>
             <div className="mt-auto">
-              <button className="bg-white text-purple-400 hover:bg-purple-200 rounded-full py-3 px-8 font-semibold">
+              <button onClick={goToSignIn} className="bg-white text-purple-400 hover:bg-purple-200 rounded-full py-3 px-8 font-semibold">
                 Summarize
               </button>
             </div>
@@ -71,7 +78,7 @@ const Content = () => {
               Need Help With Drafting?
             </p>
             <div className="mt-auto">
-              <button className="bg-white text-fuchsia-500 hover:bg-fuchsia-200 rounded-full py-3 px-8 font-semibold">
+              <button onClick={goToSignIn} className="bg-white text-fuchsia-500 hover:bg-fuchsia-200 rounded-full py-3 px-8 font-semibold">
                 Drafting
               </button>
             </div>
