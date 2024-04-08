@@ -4,6 +4,8 @@ import { useState, FormEvent } from 'react';
 import { AiOutlineUser, AiOutlineMail, AiOutlineLock } from 'react-icons/ai';
 import { FcGoogle } from "react-icons/fc";
 import { IoLogoGithub } from "react-icons/io5";
+import { FaPhone } from "react-icons/fa6";
+
 
 const SignUpPage = () => {
   const [name, setName] = useState('');
@@ -79,17 +81,18 @@ const SignUpPage = () => {
           <div className="mb-6">
             <button
               type="submit"
-              className="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="w-full bg-purple-950 hover:bg-purple-950 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             >
               Sign Up
             </button>
           </div>
           <div className="text-center mb-6">
-            <p className="text-gray-600">Already have an account? <a href="/signin" className="text-purple-600 hover:text-purple-700">Sign In</a></p>
+            <p className="text-gray-600">Already have an account? <a href="/signin" className="text-purple-950 hover:text-purple-950">Sign In</a></p>
           </div>
-          <div className="flex justify-center">
+          <div className="flex  fle-row gap-6 justify-center">
             <FcGoogle className="text-3xl mr-2 cursor-pointer" />
             <IoLogoGithub className="text-3xl mr-2 cursor-pointer" />
+            <FaPhone className='text-3xl mr-2 cursor-pointer"'/>
           </div>
         </form>
       </div>
