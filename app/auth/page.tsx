@@ -77,7 +77,7 @@ const SignInPage = () => {
             </button>
           </div>
           <div className="text-center mb-6">
-            <p className="text-gray-600">Don't have an account? <a href="/register" className="text-purple-600 hover:text-purple-800">Sign Up</a></p>
+            <p className="text-gray-600">Don't have an account? <a href="/register" className="text-purple-950 hover:text-purple-950">Sign Up</a></p>
           </div>
           <div className="flex flex-row gap-7 pt-3 items-center justify-center">
             <FcGoogle />
