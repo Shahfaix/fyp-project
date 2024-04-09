@@ -1,19 +1,26 @@
 "use client";
-import React from "react";
+import React,{useState} from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import LawSection from "../../public/assests/LawSection.png"; // Make sure this path is correct
 import CaseAnalysis from "../../public/assests/CaseAnalysis.png"; // Make sure this path is correct
 import Summarize from "../../public/assests/Summarize.png"; // Make sure this path is correct
 import Drafting from "../../public/assests/Drafting.png"; // Make sure this path is correct
+import { useAppSelector, useAppDispatch } from '../../lib/hooks';
+import { setName } from '../../lib/features/name/nameSlice';
+import MyComponent from 'react-fullpage-custom-loader';
+
 
 const Content = () => {
   const router = useRouter();
-
-  const goToSignIn = () => {
+  const dispatch = useAppDispatch();
+  const [loader, setLoader]= useState(false)
+  const goToSignIn = (name:string) => {
+    setLoader(true)
+    dispatch(setName(name))
     router.push("/promptscreen");
   };
-
+const arr1=[]
   return (
     <div className="flex justify-center p-6 bg-pink-100">
       <div className="max-w-6xl w-full space-y-6">
@@ -35,7 +42,9 @@ const Content = () => {
             </p>
             <div className="flex justify-center mt-auto">
               <button
-                onClick={goToSignIn}
+                onClick={()=>{
+                  goToSignIn('Sections')
+                }}
                 className="bg-white text-purple-600 hover:bg-purple-200 rounded-full py-3 px-8 font-semibold"
               >
                 Sections
@@ -60,7 +69,9 @@ const Content = () => {
             </p>
             <div className="flex justify-center mt-auto">
               <button
-                onClick={goToSignIn}
+                onClick={()=>{
+                  goToSignIn('Analysis')
+                }}
                 className="bg-white text-blue-500 hover:bg-blue-200 rounded-full py-3 px-8 font-semibold"
               >
                 Analyse
@@ -85,7 +96,9 @@ const Content = () => {
             </p>
             <div className="flex justify-center mt-auto">
               <button
-                onClick={goToSignIn}
+                onClick={()=>{
+                  goToSignIn('Summarize')
+                }}
                 className="bg-white text-purple-400 hover:bg-purple-200 rounded-full py-3 px-8 font-semibold"
               >
                 Summarize
@@ -110,7 +123,9 @@ const Content = () => {
             </p>
             <div className="flex justify-center mt-auto">
               <button
-                onClick={goToSignIn}
+                onClick={()=>{
+                  goToSignIn('Drafting')
+                }}
                 className="bg-white text-fuchsia-500 hover:bg-fuchsia-200 rounded-full py-3 px-8 font-semibold"
               >
                 Drafting
@@ -119,6 +134,9 @@ const Content = () => {
           </div>
         </div>
       </div>
+      {loader && (<><MyComponent sentences={arr1} loaderType={"square-spin"}/></>)
+
+      }
     </div>
   );
 };

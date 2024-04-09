@@ -1,18 +1,21 @@
 // pages/index.js
 'use client'
 import Head from 'next/head';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { useAppSelector, useAppDispatch } from '../../lib/hooks';
 export default function Home() {
   const [version, setVersion] = useState('Summerize');
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const router = useRouter();
-  
+  const name = useAppSelector((state) => state.name.value);
   
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
   };
-
+useEffect(()=>{
+setVersion(name)
+},[name])
   const changeVersion = (version:any) => {
     setVersion(version);
     setDropdownOpen(false);

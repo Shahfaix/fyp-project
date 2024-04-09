@@ -5,6 +5,7 @@ import { AiOutlineUser, AiOutlineMail, AiOutlineLock } from 'react-icons/ai';
 import { FcGoogle } from "react-icons/fc";
 import { IoLogoGithub } from "react-icons/io5";
 import { FaPhone } from "react-icons/fa6";
+import MyComponent from 'react-fullpage-custom-loader';
 
 
 const SignUpPage = () => {
@@ -12,9 +13,10 @@ const SignUpPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [loader, setLoader]= useState(false)
 
  
-
+const arr1=[]
 
 
   return (
@@ -96,6 +98,9 @@ const SignUpPage = () => {
           </div>
         </form>
       </div>
+      {loader && (<><MyComponent sentences={arr1} loaderType={"square-spin"}/></>)
+
+      }
     </div>
   );
 };
